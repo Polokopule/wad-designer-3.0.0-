@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    <style>
+        .nav{
+            position:fixed;
+            top:0;
+            left:0;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.25);
+            width: 100%;
+            display: flex;
+            height: 45px;
+            align-items: center;
+            background:#fff;
+            justify-content: center;
+            
+        }
+      .name{
+            position:absolute;
+            left: 10px;
+            padding-right: 10px;
+        }
+        b{
+            font-size: 100%;
+            font-weight: 400;
+        }
+        .linehead{
+            font-weight: 400;
+        }
+        .linehead > span{
+            font-weight: bolder;
+            font-size: 60px;
+            border-top: 8px solid #FF5722;
+            color: #0055AC;
+        }
+        .box{ 
+            background:#f2f2f2;
+            padding: 18px;
+            border-radius: 10px;
+            
+        }
+        #about > button{
+            margin-top: 20px;
+            
+        }
+        #grid{
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            
+            justify-content: center;
+        }
+       
+        iframe{
+            border: none;
+border-radius: 10px;
+        }
+        pre{
+            color: #999;
+            border-left: 2px solid #999;
+            padding: 10px;
+            height: 100px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    
+   <div id="app"></div>
+<div class="nav">
+   <div class="name"> 
+        <img src="logo.png" width="40" alt="">
+       
+    </div>
+  
+    
+     <center><b>Web App Designer</b></center>
+      
+</div>
+
+
+<br><br><br><br>
+
+<div class="box">
+<p id="about">
+    
+   WAD.js or Web app designer is a javascript library that is aimed to simplify and save time on designing Componets like Forms,Sidebar,Tooltiops... and more, With this library we believe developers will complete thier dream projects without wasting any time and, WAD.js is a game-changing when it comes to responsive designs, as we all know <i>"Responsive"</i> is one of the scary words to all developers, guess what!!? with WAD.js the nightmare of not being able to make anything responsive it is now gone
+ </p>
+
+</div>
+<center>
+ <h1 class="linehead">Explore WAD.js Components</h1>
+   
+</center>
+
+ <div id="grid"></div>
+ <center>
+ <h1 class="linehead">Is WAD.js Fully released?</h1>
+   
+</center>
+ 
+ 
+<div class="box">
+   <p> No, WAD.js is not fully releasede, Minds behind WAD.js request that you should be patient while other  components will be added after sometime, because we are looking for developers feedback if this library will be helpful for them or not</p></div>
+
+<script>
+    
+   
+    function animate(){
+    
+
+    var body = document.querySelector(".animate");
+    for(i=0;i<50;i++){
+    var h= document.createElement("div");
+    var k =Math.floor(Math.random()*100*i);
+       Object.assign(h.style, { 
+           position:"fixed",
+       width:k*4+"px",
+         height:k*4+"px",
+         background:"red",
+         left:k+"px",
+         top:k*i*10+"px",
+         zIndex:'-1',
+         opacity:"0.2"
+        
+            
+    });
+    
+    body.prepend(h)
+    }
+   
+    }
+    
+    
+
+</script>
+<script src="WAD.js"></script>
+    <script type="module">
+           var app = document.querySelector("#app");
+           var about = document.querySelector("#about");
+           var grid = document.querySelector("#grid");
+               
+           
+           
+         
+         const sidebar= Sidebar.create(
+         [
+             {
+             text:"Feedback",
+             href:"About.html"
+             },{
+                 text:"Follow us",
+                 href:"folllw"
+             }
+         ]
+         );
+         
+      app.append(sidebar); 
+
+
+        
+var list = [
+    
+    {
+        title:"Button",
+        about:`this will handle the creation of styled buttons and their functionality.<pre>
+Button.create(text, onClick)
+Button.create("Read More", (e) =>
+     { 
+     alert("Button clicked")
+      });</pre> `
+    },
+    {
+        title:"Footer",
+        about:`This will design a responsive footer<pre>
+var footer = Footer.create([{
+companyName:"Wad Designer",
+copyright:"Designed with WAD.js | Created By Poloko",
+links:[{
+    text:"",
+    href:""
+},//add more social links
+]
+
+      }]);
+       </pre>`
+    },
+    
+    {
+        title:"Navbar",
+        about:`This will Create a responsive navigation bar<pre>
+Navbar.create(links)
+Navbar.create([
+    {
+        text:"Home",
+        href:"home.html"
+    },//Add more links
+    
+])</pre>`
+    },
+    {
+        title:"Table",
+        about:`<pre>
+Table.create(headers, rows);
+const table = Table.create( 
+  ['Name', 'Age', 'Occupation'],
+   [ ['John Doe', '30', 'Engineer'],
+    ['Jane Smith', '28', 'Designer']] );</pre>This will Create a customizable table with styled headers and rows`
+    },
+    {
+        title:"Sidebar",
+        about:`This will Create a collapsible sidebar for navigation or options.<pre>
+Sidebar.create(Items)
+Sidebar.create([
+    {
+        text:"Home",
+        href:"home.html"
+    },//Add more items
+    
+])</pre>`
+    },{
+        title:"Alert",
+        about:`This will Creates a dismissible alert banner for notifications.<pre>
+Alert.create(message,type)
+Alert.create(["Error"],"error");
+Alert.create(["Informatiom"],"info");
+Alert.create(["Success"],"success");</pre>`
+    },
+{
+        title:"Dropdown",
+        about:`This will Creates a customizable dropdown menu for selecting items.<pre>
+Dropdown.create(options, onSelect)
+Dropdown.create([
+    "App Decloper",
+    "Web app Devloper",
+    "Fashion Designer"
+],
+(values)=>{
+    alert("you selected:"+values)
+})</pre>`
+    },
+{
+        title:"Accordion",
+        about:`This will Creates an accordion where sections can be expanded or collapsed.<pre>
+Accordion.create(items)
+Accordion.create([
+    {
+       title:"Home",
+       content:"Something good"
+    },//Add more items
+    
+])</pre>`
+    },
+
+
+  {
+        title:"Badge",
+        about:`This will Creates a badge to display a count or status
+
+<pre>
+Badge.create(text);
+//this badge can be added 
+inside a button so that it  indicates
+ number of messages ect....
+Badge.create("89")</pre>`
+    },
+  {
+        title:"Toast",
+        about:`This will Displays brief notifications that pop up and disappear after a set time<pre>
+Toast.create(text,duration)
+Toast.create(["Welcome to WAD.js"],10);
+</pre>`
+    },
+{
+        title:"Chip",
+        about:`A chip is a compact element that represents input, attribute, or action.
+<pre>
+Chip.create(text, Bolean)
+Chip.create(["My Chip"],true)</pre>`
+    },
+    
+{
+        title:"Spinner",
+        about:`This will Create a spinner for indicating loading or processing.<pre>
+Spinner.create(size)
+Spinner.create("50")</pre>`
+    },
+    {
+        title:"Form",
+        about:`This will  handle form creation with customizable input fields.<pre>
+Form.create(fields,buttonText,Callback)
+orm.create([
+ {
+  type: 'text',
+  placeholder: 'Name',
+  required: true
+ }, {
+  type: 'textarea', 
+ placeholder: 'Message',
+  required: true 
+ } ],["Submite button"],
+  () => { 
+ alert('Form submitted successfully!'); 
+ }); 
+</pre>`
+    },
+{
+        title:"Card",
+        about:`This file will create the logic for  styling cards.<pre>
+Card.create(content)
+Card.create("Takes in Content, 
+    html elements supported")</pre>`
+    },
+{
+        title:"Tabs",
+        about:`This file will create the logic for responsive and functioning tabs<pre>import {Tabs} from "/lib/WAD.js";
+Tabs.create(items)
+Tabs.create([
+    {
+      title:"Tab1",
+      content:"content for tab1"
+      
+    },//add more tabs
+])
+</pre>`
+    },
+{
+        title:"ZoomText",
+        about:`This file will create the logic for  zooming a text in and out.it takes only a text<pre>ZoomText.create(text);  
+ZoomText.create("increase the size of this text")
+</pre>`
+    },
+{
+        title:"Readmore",
+        about:`This file will create the logic for limiting the text that is to be shown, it uses the flag "/wad-hide/", you insert it in the middle or anywhere you want to hide your text. it uses a selector to take the text and show it as hidden, or you use a string i side the create of Readmore<pre>
+Readmore.create("string")
+Readmore.create(["selector"])
+/* 
+flag = /wad-hide/
+*string
+it accepts a text only in no elements. so the string need to have a flag inside
+
+*selector
+it accepts class,element itself and id, kt simply uses queryselector, so inside the selector you should have knly text and jnclude the flag
+*/
+Card.create("Takes in Content, 
+    html elements supported")</pre>`
+    }
+,
+{
+        title:"Grid layout",
+        about:`This file will create the logic for  creating a grid layout<pre>// Assuming the Grid class is already defined
+
+// Create an array of items for the grid
+const items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+    'Item 6'
+];
+
+// Create the grid with 4 columns and a gap of 10px
+const grid = Grid.create(4, '10px', items);
+
+// Append the grid to an existing container (e.g., a div with id "grid-container")
+document.getElementById('grid-container').appendChild(grid);
+</pre>`
+    },
+{
+        title:"Search",
+        about:`This file will create the logic for  a seach engine<pre>// Assuming the Search class and Button class are already defined
+
+// Create the search component with a placeholder and a search handler
+const searchComponent = Search.create('Search...', (query) => {
+    console.log('Searching for:', query);
+    // You can add more functionality here, like making an API call
+});
+
+// Append the search component to an existing container (e.g., a div with id "search-container")
+document.getElementById('search-container').appendChild(searchComponent);
+</pre>`
+    },
+{
+        title:"Image Gallery",
+        about:`
+
+The ImageGallery component displays images in a responsive grid layout, easily integrated into web applications. By calling the ImageGallery.create() method with an array of image URLs, the number of columns, and the gap size, developers can create the gallery.
+
+<pre>// Assuming the ImageGallery class is defined
+
+// Create an array of image URLs
+const images = [
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300/ff0000',
+    'https://via.placeholder.com/300/00ff00',
+    'https://via.placeholder.com/300/0000ff',
+    'https://via.placeholder.com/300/ffff00',
+    'https://via.placeholder.com/300/ff00ff',
+];
+
+// Create the image gallery with a specified number of columns and gap
+const gallery = ImageGallery.create(images, 3, '10px');
+
+// Append the gallery to an existing container (e.g., a div with id "gallery-container")
+document.getElementById('gallery-container').appendChild(gallery);
+</pre>`
+    },
+    
+
+];
+for(var i =0; i< list.length; i++){
+    var card4 = Card.create(
+                        `
+                      
+                        <h1>${list[i].title}</h1>
+                        <p>${list[i].about} </p>`
+                 );
+                
+      var btn4 =   Button.create("Read More", (e) => { 
+                     alert("j")
+                 });
+                 
+                 
+grid.append(card4);
+
+
+}
+
+
+
+    </script>
+</body>
+</html>
+-
