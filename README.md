@@ -92,7 +92,7 @@ mkdir  your-project
 cd your-project
 npm init -y
 npm install wad-designer@3.0.0
-``
+```
 
 
 
